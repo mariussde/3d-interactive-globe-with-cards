@@ -1,4 +1,4 @@
-import { GlobeComponent } from "@/components/globe";
+import GlobeComponent from "@/components/globe";
 
 import {
   Card,

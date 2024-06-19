@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
+import dynamic from "next/dynamic";
 import { createRoot } from "react-dom/client";
-import Globe from "react-globe.gl";
-import GlobeTooltip from "./tooltip";
 import * as THREE from "three";
+import GlobeTooltip from "./tooltip";
 
 interface Location {
   id: number;
@@ -36,7 +36,9 @@ const getData = async () => {
   return res.json();
 };
 
-export const GlobeComponent = () => {
+const Globe = dynamic(() => import("react-globe.gl"), { ssr: false });
+
+const GlobeComponent = () => {
   const globeEl = useRef<any>(null);
   const [arcsData, setArcsData] = useState<any[]>([]);
   const [ringsData, setRingsData] = useState<any[]>([]);
@@ -47,8 +49,8 @@ export const GlobeComponent = () => {
     width: number;
     height: number;
   }>({
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: 0,
+    height: 0,
   });
 
   useEffect(() => {
@@ -58,15 +60,22 @@ export const GlobeComponent = () => {
   }, []);
 
   useEffect(() => {
-    const handleResize = () => {
+    if (typeof window !== "undefined") {
       setDimensions({
         width: window.innerWidth,
         height: window.innerHeight,
       });
-    };
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+      const handleResize = () => {
+        setDimensions({
+          width: window.innerWidth,
+          height: window.innerHeight,
+        });
+      };
+
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }
   }, []);
 
   useEffect(() => {
@@ -85,61 +94,63 @@ export const GlobeComponent = () => {
 
       setArcsData([newArc]);
 
-      // Rotate to start location immediately
-      globeEl.current.pointOfView(
-        { lat: fromLocation.lat, lng: fromLocation.lng, altitude: 2 },
-        0
-      );
-
-      // Rotate the globe and animate the arc to the end location
-      setTimeout(() => {
+      if (globeEl.current) {
+        // Rotate to start location immediately
         globeEl.current.pointOfView(
-          { lat: toLocation.lat, lng: toLocation.lng, altitude: 2 },
-          3000
+          { lat: fromLocation.lat, lng: fromLocation.lng, altitude: 2 },
+          0
         );
-      }, 0);
 
-      // Animate the ring and display text at the end location after the globe rotation and arc animation
-      setTimeout(() => {
-        setRingsData([
-          {
-            lat: toLocation.lat,
-            lng: toLocation.lng,
-            maxRadius: 5,
-            propagationSpeed: 5,
-            repeatPeriod: 1000,
-          },
-        ]);
-        const container = document.createElement("div");
-        createRoot(container).render(
-          <GlobeTooltip
-            fromCountry={fromLocation.country}
-            toCountry={toLocation.country}
-          />
-        );
-        setHtmlElementsData([
-          {
-            lat: toLocation.lat,
-            lng: toLocation.lng,
-            element: container,
-          },
-        ]);
-      }, 3000); // 3000ms for globe rotation and arc animation
+        // Rotate the globe and animate the arc to the end location
+        setTimeout(() => {
+          globeEl.current.pointOfView(
+            { lat: toLocation.lat, lng: toLocation.lng, altitude: 2 },
+            3000
+          );
+        }, 0);
 
-      // Clear the arc data to prevent flashing
-      setTimeout(() => {
-        setArcsData([]);
-      }, 3000); // 3000ms for globe rotation and arc animation
+        // Animate the ring and display text at the end location after the globe rotation and arc animation
+        setTimeout(() => {
+          setRingsData([
+            {
+              lat: toLocation.lat,
+              lng: toLocation.lng,
+              maxRadius: 5,
+              propagationSpeed: 5,
+              repeatPeriod: 1000,
+            },
+          ]);
+          const container = document.createElement("div");
+          createRoot(container).render(
+            <GlobeTooltip
+              fromCountry={fromLocation.country}
+              toCountry={toLocation.country}
+            />
+          );
+          setHtmlElementsData([
+            {
+              lat: toLocation.lat,
+              lng: toLocation.lng,
+              element: container,
+            },
+          ]);
+        }, 3000); // 3000ms for globe rotation and arc animation
 
-      // Clear the HTML elements after they have been displayed
-      setTimeout(() => {
-        setHtmlElementsData([]);
-      }, 6300); // 3000ms for globe rotation + 3000ms display time + 300ms delay
+        // Clear the arc data to prevent flashing
+        setTimeout(() => {
+          setArcsData([]);
+        }, 3000); // 3000ms for globe rotation and arc animation
 
-      // Wait for 800ms before starting the next animation cycle
-      setTimeout(() => {
-        setCurrentIndex(nextIndex);
-      }, 6800); // 3000ms for globe rotation + 3000ms display time + 800ms delay
+        // Clear the HTML elements after they have been displayed
+        setTimeout(() => {
+          setHtmlElementsData([]);
+        }, 6300); // 3000ms for globe rotation + 3000ms display time + 300ms delay
+
+        // Wait for 800ms before starting the next animation cycle
+        setTimeout(() => {
+          setCurrentIndex(nextIndex);
+        }, 6800); // 3000ms for globe rotation + 3000ms display time + 800ms delay
+      }
     };
 
     animateArc(); // Start the first animation immediately
