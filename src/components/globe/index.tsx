@@ -35,8 +35,8 @@ const getData = async () => {
   );
   return res.json();
 };
-
-const Globe = dynamic(() => import("react-globe.gl"), { ssr: false });
+let Globe = () => null;
+if (typeof window !== "undefined") Globe = require("react-globe.gl").default;
 
 const GlobeComponent = () => {
   const globeEl = useRef<any>(null);
