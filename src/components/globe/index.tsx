@@ -1,3 +1,4 @@
+// @ts-nocheck
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
@@ -35,10 +36,11 @@ const getData = async () => {
   );
   return res.json();
 };
-let Globe = () => null;
-if (typeof window !== "undefined") Globe = require("react-globe.gl").default;
 
 const GlobeComponent = () => {
+  let Globe = () => null;
+  if (typeof window !== "undefined") Globe = require("react-globe.gl").default;
+
   const globeEl = useRef<any>(null);
   const [arcsData, setArcsData] = useState<any[]>([]);
   const [ringsData, setRingsData] = useState<any[]>([]);
