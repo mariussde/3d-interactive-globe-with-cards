@@ -100,10 +100,14 @@ const getAllImagePathsFromName = (name: string): string[] => {
     // Cables
     'Puente Golden Gate – San Francisco, EE.UU.': [
       '/Estructuras/Golden gate/main.jpg',
-      '/Estructuras/Golden gate/8e305f6dc5a52af40d74fb175ea5528f.jpg',
-      '/Estructuras/Golden gate/a6eab13eb1ee5174c528eb98aed45da3.jpg',
-      '/Estructuras/Golden gate/b831ff27415c1d69ee7ea617dfea5b19.jpg',
-      '/Estructuras/Golden gate/feeafc781f7f2fde567b03088c6ad3cc.jpg'
+      '/Estructuras/Golden gate/4c6f630e359dd76a3ffe92c77e4fd62f.jpg',
+      '/Estructuras/Golden gate/552bfd3d125463d67c60a35e3ca326ad.jpg',
+      '/Estructuras/Golden gate/66e8e96dbc6dee8a5c1d4630abeba72b.jpg',
+      '/Estructuras/Golden gate/af706090ad5cce31a107c0e3f006c9c0.jpg',
+      '/Estructuras/Golden gate/fdf216875728e2fb000b9bd894385328.jpg',
+      '/Estructuras/Golden gate/Golden_Gate_Bridge_2021.jpg',
+      '/Estructuras/Golden gate/golden-gate-bridge-san-francisco-ca-usa-bay-2.webp',
+      '/Estructuras/Golden gate/nu35x2eb.jpg'
     ],
     'Millennium Bridge – Londres, Reino Unido': [
       '/Estructuras/Millennium Bridge/main.jpg',
@@ -124,17 +128,17 @@ const getAllImagePathsFromName = (name: string): string[] => {
     ],
     'Puente del Gard – Nîmes, Francia': [
       '/Estructuras/Puente del Gard/main.jpg',
-      '/Estructuras/Puente del Gard/8e305f6dc5a52af40d74fb175ea5528f.jpg',
-      '/Estructuras/Puente del Gard/a6eab13eb1ee5174c528eb98aed45da3.jpg',
-      '/Estructuras/Puente del Gard/b831ff27415c1d69ee7ea617dfea5b19.jpg',
-      '/Estructuras/Puente del Gard/feeafc781f7f2fde567b03088c6ad3cc.jpg'
+      '/Estructuras/Puente del Gard/9d2710ca3d3bb587bc0c7ba393b92237.jpg',
+      '/Estructuras/Puente del Gard/f6fba933c5080a3df87f4bfa6ba1728a.jpg',
+      '/Estructuras/Puente del Gard/istockphoto-159314951-612x612.jpg',
+      '/Estructuras/Puente del Gard/pont-du-gard-aqueduct-in-the-south-of-france-the-highest-of-all-the-raised-roman-aqueducts-photo.jpeg'
     ],
     'Puente de la Bahía de Sydney – Sídney, Australia': [
       '/Estructuras/Puente de la Bahía de Sydney/main.jpg',
-      '/Estructuras/Puente de la Bahía de Sydney/8e305f6dc5a52af40d74fb175ea5528f.jpg',
-      '/Estructuras/Puente de la Bahía de Sydney/a6eab13eb1ee5174c528eb98aed45da3.jpg',
-      '/Estructuras/Puente de la Bahía de Sydney/b831ff27415c1d69ee7ea617dfea5b19.jpg',
-      '/Estructuras/Puente de la Bahía de Sydney/feeafc781f7f2fde567b03088c6ad3cc.jpg'
+      '/Estructuras/Puente de la Bahía de Sydney/3523df9ab58c9c75486c990129838ae1.jpg',
+      '/Estructuras/Puente de la Bahía de Sydney/63ebf83ba4a8276960edd90262c73140.jpg',
+      '/Estructuras/Puente de la Bahía de Sydney/cf2f2eb9916f4caef050e0c8bf33a642.jpg',
+      '/Estructuras/Puente de la Bahía de Sydney/e286eac727d0c4eaea1875ac718a97b0.jpg'
     ],
     
     // Estructuras de barras articuladas
@@ -147,10 +151,10 @@ const getAllImagePathsFromName = (name: string): string[] => {
     ],
     'Puente Forth – Escocia, Reino Unido': [
       '/Estructuras/Puente Forth/main.jpg',
-      '/Estructuras/Puente Forth/8e305f6dc5a52af40d74fb175ea5528f.jpg',
-      '/Estructuras/Puente Forth/a6eab13eb1ee5174c528eb98aed45da3.jpg',
-      '/Estructuras/Puente Forth/b831ff27415c1d69ee7ea617dfea5b19.jpg',
-      '/Estructuras/Puente Forth/feeafc781f7f2fde567b03088c6ad3cc.jpg'
+      '/Estructuras/Puente Forth/5491b3f4c628d812c0340a6a034030db.jpg',
+      '/Estructuras/Puente Forth/951941db3b2996fd84f9ffc2995bf581.jpg',
+      '/Estructuras/Puente Forth/b8845bb3d8607bbd63bd28def25fdad1.jpg',
+      '/Estructuras/Puente Forth/d6534bc10970f5148a5cfe3f3a7c7bd7.jpg'
     ],
     
     // Vigas
@@ -162,19 +166,22 @@ const getAllImagePathsFromName = (name: string): string[] => {
     ],
     'Pabellón de Barcelona – Barcelona, España (Mies van der Rohe)': [
       '/Estructuras/Pabellón de Barcelona/main.jpg',
-      '/Estructuras/Pabellón de Barcelona/8e305f6dc5a52af40d74fb175ea5528f.jpg',
-      '/Estructuras/Pabellón de Barcelona/a6eab13eb1ee5174c528eb98aed45da3.jpg',
-      '/Estructuras/Pabellón de Barcelona/b831ff27415c1d69ee7ea617dfea5b19.jpg',
-      '/Estructuras/Pabellón de Barcelona/feeafc781f7f2fde567b03088c6ad3cc.jpg'
+      '/Estructuras/Pabellón de Barcelona/168384b6dc500ccc3ad4c638d4dcc81a.jpg',
+      '/Estructuras/Pabellón de Barcelona/194d6b64933781751dd8b25bf46f83ca.jpg',
+      '/Estructuras/Pabellón de Barcelona/5ebd31ab64296ba0f76fedfbc2c06d1a.jpg',
+      '/Estructuras/Pabellón de Barcelona/63816e6a588e6e0325c247627c9e8324.jpg',
+      '/Estructuras/Pabellón de Barcelona/DSCF2573.JPG',
+      '/Estructuras/Pabellón de Barcelona/DSCF2611.JPG',
+      '/Estructuras/Pabellón de Barcelona/e98d99889d70909ab5b8e294efcfae74.jpg'
     ],
     
     // Pórticos de nudos rígidos
     'Seagram Building – Nueva York, EE.UU. (Mies van der Rohe)': [
       '/Estructuras/Seagram Building/main.jpg',
       '/Estructuras/Seagram Building/26b43cd4b9ee390ac07ede03fec5220a.jpg',
+      '/Estructuras/Seagram Building/6ef425230b43e811118b5e7be98df06d.jpg',
       '/Estructuras/Seagram Building/70cf1a2cc176aeb9b293c99f1984c450.jpg',
-      '/Estructuras/Seagram Building/8e305f6dc5a52af40d74fb175ea5528f.jpg',
-      '/Estructuras/Seagram Building/a6eab13eb1ee5174c528eb98aed45da3.jpg'
+      '/Estructuras/Seagram Building/b859474988c3e8beba4d9385e40cc7ef.jpg'
     ],
     'Edificio John Hancock Center – Chicago, EE.UU.': [
       '/Estructuras/Edificio John Hancock Center/main.jpg',
@@ -187,9 +194,9 @@ const getAllImagePathsFromName = (name: string): string[] => {
     // Membranas / Textiles
     'Olympiastadion – Múnich, Alemania (Frei Otto)': [
       '/Estructuras/Olympiastadion/main.jpg',
-      '/Estructuras/Olympiastadion/8e305f6dc5a52af40d74fb175ea5528f.jpg',
-      '/Estructuras/Olympiastadion/a6eab13eb1ee5174c528eb98aed45da3.jpg',
-      '/Estructuras/Olympiastadion/b831ff27415c1d69ee7ea617dfea5b19.jpg'
+      '/Estructuras/Olympiastadion/65457c517d36c12d44ed59fd88f3893e.jpg',
+      '/Estructuras/Olympiastadion/9fce2ab828e88a879b2811678b5f2505.jpg',
+      '/Estructuras/Olympiastadion/f41e9de2f75dc4017a2f69bbe5fbdbc4.jpg'
     ],
     'Aeropuerto Internacional de Denver – Colorado, EE.UU.': [
       '/Estructuras/Aeropuerto/main.jpg',
@@ -212,17 +219,21 @@ const getAllImagePathsFromName = (name: string): string[] => {
     ],
     'Museo Guggenheim – Bilbao, España (Frank Gehry)': [
       '/Estructuras/Museo Guggenheim/main.jpg',
-      '/Estructuras/Museo Guggenheim/8e305f6dc5a52af40d74fb175ea5528f.jpg',
-      '/Estructuras/Museo Guggenheim/a6eab13eb1ee5174c528eb98aed45da3.jpg',
-      '/Estructuras/Museo Guggenheim/b831ff27415c1d69ee7ea617dfea5b19.jpg',
-      '/Estructuras/Museo Guggenheim/feeafc781f7f2fde567b03088c6ad3cc.jpg'
+      '/Estructuras/Museo Guggenheim/1ca7f1ee668b89c19cf033cb73683409.jpg',
+      '/Estructuras/Museo Guggenheim/2b3eaa3e1ac5a5be6a5edea373a43427.jpg',
+      '/Estructuras/Museo Guggenheim/6163cbadd2b16c0c4946dae4665dbfe9.jpg',
+      '/Estructuras/Museo Guggenheim/71190929-Interior-view-of-Guggenheim-Museum-or-Solomon-R-Guggenheim-Museum-by-architect-Frank-Lloyd-Wright-Fifth-Avenue.jpg',
+      '/Estructuras/Museo Guggenheim/architecture-srgm-interior-low-angle-rotunda-16-9.jpg',
+      '/Estructuras/Museo Guggenheim/d1285aad2683c5fc2218219ca3df1ff9.jpg'
     ],
     'Capilla de Notre-Dame du Haut – Ronchamp, Francia (Le Corbusier)': [
       '/Estructuras/notre dame/main.jpg',
-      '/Estructuras/notre dame/8e305f6dc5a52af40d74fb175ea5528f.jpg',
-      '/Estructuras/notre dame/a6eab13eb1ee5174c528eb98aed45da3.jpg',
-      '/Estructuras/notre dame/b831ff27415c1d69ee7ea617dfea5b19.jpg',
-      '/Estructuras/notre dame/feeafc781f7f2fde567b03088c6ad3cc.jpg'
+      '/Estructuras/notre dame/18faaa505d3c24d08bc2a632ed5534db.jpg',
+      '/Estructuras/notre dame/552fc91d0081c68738a837c8b65c478c.jpg',
+      '/Estructuras/notre dame/5QUSCQQF4YH43F5EV5STEYW5PI.avif',
+      '/Estructuras/notre dame/c541c5fe778f3946653ee61c5b8b227d.jpg',
+      '/Estructuras/notre dame/cb3271db58f15499615c9614102935a7.jpg',
+      '/Estructuras/notre dame/e4a801d9733952fb64f8b3b024a2224f.jpg'
     ],
     
     // Placas, losas y muros

@@ -30,7 +30,11 @@ const GlobeComponent = () => {
   const [hexData, setHexData] = useState<any[]>([]);
   const [currentLocations, setCurrentLocations] = useState<Location[]>(allLocations);
   const [pointsData, setPointsData] = useState<any[]>([]);
-  const [selectedLocation, setSelectedLocation] = useState<Location | null>(null);
+  // Set Auditorio de Tenerife as the default selected location
+  const auditorioTenerife = allLocations.find(loc => 
+    loc.name === "Auditorio de Tenerife – Santa Cruz de Tenerife, España (Santiago Calatrava)"
+  );
+  const [selectedLocation, setSelectedLocation] = useState<Location | null>(auditorioTenerife || null);
   const [hoveredLocation, setHoveredLocation] = useState<Location | null>(null);
   const [mousePosition, setMousePosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
   const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -109,16 +113,16 @@ const GlobeComponent = () => {
   const globeMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
 
   useEffect(() => {
-    if (globeEl.current) {
+    if (globeEl.current && auditorioTenerife) {
       // Set initial camera position with proper zoom level
       const camera = globeEl.current.camera();
       camera.position.set(0, 0, -400); // Increased distance for better initial view
       camera.lookAt(0, 0, 0);
       globeEl.current.controls().update();
       
-      // Set initial point of view with proper altitude
+      // Set initial point of view to focus on Auditorio de Tenerife
       globeEl.current.pointOfView(
-        { lat: 0, lng: 0, altitude: 2.5 }, // Higher altitude for better overview
+        { lat: auditorioTenerife.lat, lng: auditorioTenerife.lng, altitude: 2.5 },
         0
       );
       
@@ -133,7 +137,7 @@ const GlobeComponent = () => {
         controls.enablePan = false; // Disable panning to prevent unwanted movements
       }
     }
-  }, []);
+  }, [auditorioTenerife]);
 
   const handleSubcategorySelect = (subcategory: Subcategory) => {
     // Keep all locations visible, just change the highlighted ones
