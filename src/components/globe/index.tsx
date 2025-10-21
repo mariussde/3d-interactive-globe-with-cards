@@ -8,6 +8,7 @@ import * as THREE from "three";
 import GlobeTooltip from "./tooltip";
 import Controls from "./controls";
 import LocationInfoCard from "./location-info-card";
+import HoverCard from "./hover-card";
 import WebsiteTitle from "../website-title";
 import { allLocations, Location, Subcategory } from "@/lib/locationData";
 
@@ -30,6 +31,9 @@ const GlobeComponent = () => {
   const [currentLocations, setCurrentLocations] = useState<Location[]>(allLocations);
   const [pointsData, setPointsData] = useState<any[]>([]);
   const [selectedLocation, setSelectedLocation] = useState<Location | null>(null);
+  const [hoveredLocation, setHoveredLocation] = useState<Location | null>(null);
+  const [mousePosition, setMousePosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [dimensions, setDimensions] = useState<{
     width: number;
     height: number;
@@ -52,6 +56,7 @@ const GlobeComponent = () => {
       color: location.color,
       size: 2,
       name: location.name,
+      location: location, // Add the full location object for hover/click events
     }));
     setPointsData(points);
   }, []); // Only run once on mount
@@ -71,8 +76,16 @@ const GlobeComponent = () => {
         });
       };
 
+      const handleMouseMove = (e: MouseEvent) => {
+        setMousePosition({ x: e.clientX, y: e.clientY });
+      };
+
       window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
+      window.addEventListener("mousemove", handleMouseMove);
+      return () => {
+        window.removeEventListener("resize", handleResize);
+        window.removeEventListener("mousemove", handleMouseMove);
+      };
     }
   }, []);
 
@@ -81,6 +94,15 @@ const GlobeComponent = () => {
     setArcsData([]);
     setRingsData([]);
     setHtmlElementsData([]);
+  }, []);
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (hoverTimeoutRef.current) {
+        clearTimeout(hoverTimeoutRef.current);
+      }
+    };
   }, []);
 
   // Globe material
@@ -175,6 +197,40 @@ const GlobeComponent = () => {
     }
   };
 
+  const handlePointHover = (point: any) => {
+    // Clear any existing timeout
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
+    }
+    
+    if (point && point.location) {
+      setHoveredLocation(point.location);
+    }
+  };
+
+  const handlePointUnhover = () => {
+    // Add a small delay before hiding to prevent flickering
+    hoverTimeoutRef.current = setTimeout(() => {
+      setHoveredLocation(null);
+    }, 100);
+  };
+
+  // Clear hovered location when mouse leaves the globe area
+  const handleGlobeMouseLeave = () => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
+    }
+    setHoveredLocation(null);
+  };
+
+  const handlePointClick = (point: any) => {
+    if (point && point.location) {
+      handleLocationSelect(point.location);
+    }
+  };
+
   return (
     <div className="fixed inset-0 flex overflow-hidden">
       <WebsiteTitle />
@@ -190,6 +246,7 @@ const GlobeComponent = () => {
           onSubcategorySelect={handleSubcategorySelect}
           onLocationSelect={handleLocationSelect}
         />
+        <HoverCard location={hoveredLocation} mousePosition={mousePosition} />
         <div 
           className="h-full w-full flex items-center justify-center"
           style={{ pointerEvents: 'auto' }}
@@ -199,6 +256,7 @@ const GlobeComponent = () => {
               e.stopPropagation();
             }
           }}
+          onMouseLeave={handleGlobeMouseLeave}
         >
           <div style={{ pointerEvents: 'auto' }}>
             <Globe
@@ -232,6 +290,9 @@ const GlobeComponent = () => {
             pointColor={(d: any) => d.color}
             pointAltitude={0.01}
             pointRadius={0.5}
+            onPointHover={handlePointHover}
+            onPointUnhover={handlePointUnhover}
+            onPointClick={handlePointClick}
             backgroundColor="white"
             showAtmosphere={false}
             showGlobe={true}
