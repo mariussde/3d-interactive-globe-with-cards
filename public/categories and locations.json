@@ -1,0 +1,48 @@
+{
+    "Tipologías a base de elementos lineales": {
+      "Cables": [
+        "Puente Golden Gate – San Francisco, EE.UU.",
+        "Millennium Bridge – Londres, Reino Unido"
+      ],
+      "Arcos": [
+        "Arco del Triunfo – París, Francia",
+        "Puente del Gard – Nîmes, Francia",
+        "Puente de la Bahía de Sydney – Sídney, Australia"
+      ],
+      "Estructuras de barras articuladas (celosías o trusses)": [
+        "Torre Eiffel – París, Francia",
+        "Puente Forth – Escocia, Reino Unido"
+      ],
+      "Vigas": [
+        "Casa Farnsworth – Plano, Illinois, EE.UU. (Mies van der Rohe)",
+        "Pabellón de Barcelona – Barcelona, España (Mies van der Rohe)"
+      ],
+      "Pórticos de nudos rígidos / Forjados": [
+        "Seagram Building – Nueva York, EE.UU. (Mies van der Rohe)",
+        "Edificio John Hancock Center – Chicago, EE.UU."
+      ]
+    },
+    "Tipologías a base de elementos superficiales": {
+      "Membranas / Textiles": [
+        "Olympiastadion – Múnich, Alemania (Frei Otto)",
+        "Aeropuerto Internacional de Denver – Colorado, EE.UU."
+      ],
+      "Láminas de simple y doble curvatura": [
+        "Auditorio de Tenerife – Santa Cruz de Tenerife, España (Santiago Calatrava)",
+        "Museo Guggenheim – Bilbao, España (Frank Gehry)",
+        "Capilla de Notre-Dame du Haut – Ronchamp, Francia (Le Corbusier)"
+      ],
+      "Placas, losas y muros": [
+        "Casa de la Cascada – Pensilvania, EE.UU. (Frank Lloyd Wright)",
+        "Casa Citrohan – Francia (Le Corbusier)"
+      ]
+    },
+    "Tipologías de entramados tridimensionales": {
+      "Ejemplos": [
+        "Cúpula del Reichstag – Berlín, Alemania (Norman Foster)",
+        "Eden Project – Cornualles, Reino Unido (Nicholas Grimshaw)",
+        "Estadio Nacional de Pekín (“Nido de Pájaro”) – Pekín, China (Herzog & de Meuron)"
+      ]
+    }
+  }
+  

@@ -1,0 +1,38 @@
+{
+    "fonts": {
+      "websiteName": {
+        "family": "PPEditorialNew-UltralightItalic",
+        "weight": 200,
+        "style": "italic",
+        "letterSpacing": "-0.025em"
+      },
+      "overall": {
+        "family": "Inter",
+        "weight": 300,
+        "opacity": 0.6
+      }
+    },
+    "lightScheme": {
+      "background": "#faf0e6",
+      "foreground": "#2C231E",
+      "textStrong": "#2C231E",
+      "border": "rgba(44, 35, 30, 0.15)",
+      "card": "#ffffff",
+      "cardForeground": "#2C231E",
+      "popover": "#ffffff",
+      "popoverForeground": "#2C231E",
+      "primary": "#2C231E",
+      "primaryForeground": "#faf0e6",
+      "secondary": "#f5f5f5",
+      "secondaryForeground": "#2C231E",
+      "muted": "#f5f5f5",
+      "mutedForeground": "rgba(44, 35, 30, 0.45)",
+      "accent": "#f5f5f5",
+      "accentForeground": "#2C231E",
+      "destructive": "#ef4444",
+      "destructiveForeground": "#faf0e6",
+      "borderColor": "#e5e5e5",
+      "input": "#e5e5e5",
+      "ring": "#2C231E"
+    }
+  }
