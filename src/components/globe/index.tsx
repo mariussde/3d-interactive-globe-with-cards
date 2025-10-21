@@ -206,14 +206,10 @@ const GlobeComponent = () => {
     
     if (point && point.location) {
       setHoveredLocation(point.location);
-    }
-  };
-
-  const handlePointUnhover = () => {
-    // Add a small delay before hiding to prevent flickering
-    hoverTimeoutRef.current = setTimeout(() => {
+    } else {
+      // If point is null, immediately clear the hover
       setHoveredLocation(null);
-    }, 100);
+    }
   };
 
   // Clear hovered location when mouse leaves the globe area
@@ -290,8 +286,8 @@ const GlobeComponent = () => {
             pointColor={(d: any) => d.color}
             pointAltitude={0.01}
             pointRadius={0.5}
+            pointLabel={() => ''}
             onPointHover={handlePointHover}
-            onPointUnhover={handlePointUnhover}
             onPointClick={handlePointClick}
             backgroundColor="white"
             showAtmosphere={false}
