@@ -43,7 +43,6 @@ const Controls: React.FC<ControlsProps> = ({
               side="bottom" 
               align="end"
               onCloseAutoFocus={(e) => e.preventDefault()}
-              onOpenAutoFocus={(e) => e.preventDefault()}
             >
               <DropdownMenuLabel>{category.name}</DropdownMenuLabel>
               <DropdownMenuSeparator />
