@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Location } from "@/lib/locationData";
 
@@ -92,9 +93,11 @@ const LocationInfoCard: React.FC<LocationInfoCardProps> = ({ selectedLocation })
         {currentImage && (
           <div>
             <div className="rounded-lg overflow-hidden">
-              <img
+              <Image
                 src={currentImage}
                 alt={locationName}
+                width={800}
+                height={480}
                 className="w-full aspect-[5/3] object-cover"
               />
             </div>

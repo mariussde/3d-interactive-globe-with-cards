@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Location } from "@/lib/locationData";
 
 interface HoverCardProps {
@@ -58,9 +59,11 @@ const HoverCard: React.FC<HoverCardProps> = ({ location, mousePosition }) => {
         )}
         {location.imagePath && (
           <div className="rounded overflow-hidden">
-            <img
+            <Image
               src={location.imagePath}
               alt={locationName}
+              width={320}
+              height={80}
               className="w-full h-20 object-cover"
             />
           </div>
